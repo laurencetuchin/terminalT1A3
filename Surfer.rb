@@ -55,3 +55,23 @@ puts "You selected #{input}"
 # end
 
 #Enter the categorie's number, type 'list' to show the category list, or type 'exit':
+
+puts "What would you like to do?"
+# input = prompt.ask("yes or no", )
+menu = %w(add edit delete exit list)
+menu_input = prompt.select("What would you like to do?", menu)
+
+case menu
+when menu == 'add'
+    add_session() #method
+when menu == 'edit'
+    edit #method
+when menu == 'delete'
+    delete #method
+when menu == 'exit'
+    exit #method
+when menu == 'list'
+    list #method
+else
+    retry
+end
