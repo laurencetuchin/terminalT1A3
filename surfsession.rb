@@ -1,8 +1,8 @@
 require 'tty-prompt'
 prompt = TTY::Prompt.new
-surf_dayofweek = %w(monday tuesday wednesday thursday friday saturday sunday)
+# surf_dayofweek = %w(monday tuesday wednesday thursday friday saturday sunday)
 # surfDay = prompt.select("What day did you surf?", surf_dayofweek)
-surfDay = prompt.select("What day did you surf?", surf_dayofweek)
+# surfDay = prompt.select("What day did you surf?", surf_dayofweek)
 # trueFalse = %w(true false)
 # trueFalseQuestion = prompt.select("true or false", trueFalse)
 
@@ -18,23 +18,67 @@ surfDay = prompt.select("What day did you surf?", surf_dayofweek)
 
 
 class SurfSession
-    attr_accessor :surf_day
-    def intialize
+    def intialize(surf_time, surf_day)
         @surf_time = surf_time
-        @surf_day = []
+        @surf_day = surf_day
+        @surf_date = Time.now
     end
-    def surf_day 
-        @surf_day
-    end
-    def surf_day=(surfDay)
-        @surf_day = surfDay
-    end
+
+    # def surf_day 
+    #     @surf_day
+    # end
+    # def surf_day=(surfDay)
+    #     @surf_day = surfDay
+    # end
 
 end
 
-s = SurfSession.new
-puts s.surf_day
+# s = SurfSession.new
+# puts s.surf_day
 # difficulty = %w(easy medium hard)
 # prompt.select("How difficult?", difficulty)
 
 # surf_dayofweek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
+
+class Surf
+    def initialize(id, name, date, difficulty, minutes, points, location)
+        @id = rand(666)
+        @name = name
+        @date = Date.now
+        @difficulty = difficulty
+        @minutes = minutes
+        @points = points
+        @location = location
+    end
+    #changes difficulty to easy
+    def setEasy
+        @difficulty = "easy"
+    end
+    
+    #changes difficulty to medium
+
+    def setMedium
+        @difficulty = "medium"
+    end
+    
+    #changes difficulty to hard
+    def setHard
+        @difficulty = "hard"
+    end
+
+
+
+end
+
+
+class Add 
+    attr_accessor :id, :name, :date, :difficulty, :minutes, :points
+    def initialize
+        @id = 1
+        @name = gets.chomp
+        @date = Date.now
+        @difficulty = prompt.select("How difficult was the surf?", surfdifficulty)
+        @minutes = prompt.ask("How long did you surf for? (in minutes)")
+    end
+end
