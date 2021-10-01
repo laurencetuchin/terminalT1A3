@@ -22,7 +22,7 @@ class List
         # TTY prompt
 
         
-        newTask = Task.new(name, difficulty, minutes, location, rating)
+        newTask = Surf.new(name, difficulty, minutes, location, rating)
         @session.push(newTask)
 
     end

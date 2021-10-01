@@ -1,6 +1,7 @@
 require_relative 'list'
 # require_relative 'surfquote'
 require 'tty-font'
+require 'tty-prompt'
 
 surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']
 
@@ -25,15 +26,28 @@ class UserInterface
                 puts "Welcome to" 
                 font = TTY::Font.new(:doom)
                 intro = puts font.write("Surf Saver")
+                randomSurfQuote()
                 
                 # Prints random surf quote to start
-                
                 # Get user input
                 # Send user through menu
                 # Get user to input option
                 
                 @list.print()
                 puts "What would you like to do?"
+                puts "---------"
+                prompt = TTY::Prompt.new
+                menu_options = %w(add favorite delete show(list))
+                input = prompt.select("What would you like to do?", menu_options)
+
+                case input
+                when "add"
+                    add_task()
+                when "delete"
+                    delete_task()
+                else
+                    "Please try again"
+                end
 
         end
             

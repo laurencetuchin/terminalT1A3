@@ -1,3 +1,4 @@
+require 'tty-prompt'
 
 
 class Surf
@@ -17,6 +18,10 @@ class Surf
         @favorite = favorite
     end
     #changes difficulty to easy
+    # prompt = TTY::Prompt.new
+    # difficulty_setting = %w(easy medium hard)
+    # difficulty = prompt.select("What difficulty was the surf?", difficulty_setting)
+    
     def setEasy
         @difficulty = "easy"
     end
