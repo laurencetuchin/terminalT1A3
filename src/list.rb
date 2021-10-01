@@ -1,34 +1,38 @@
-
-require_relative 'main.rb'
-require_relative 'task.rb'
-require_relative 'menu.rb'
+require_relative "surfsession.rb"
 
 
 class List
     
     
     def initialize()
+        @name = "New"
         @session = [] #list of surf
 
     end
 
     def export_YAML
+        # Get all sessions
         @session 
+        # file export
+
     end
 
     def add_task(name, difficulty, minutes, location, rating)
+        # Add input info
+        # TTY prompt
+
+        
         newTask = Task.new(name, difficulty, minutes, location, rating)
         @session.push(newTask)
 
     end
 
-    def deleteSurf(surf)
-        @session.push(surf)
-
+    def deleteSurf(index)
+        @session.delete_at(index)
     end
-    def favoriteSurf(surf)
-        @session.push(surf)
 
+    def favoriteSurf(index)
+        @session[index].favorite()
     end
 
     def sessionAll
@@ -38,67 +42,18 @@ class List
     end 
 
     def print()
+        if(@session.length <= 0)
+            return
+        end
+        
+        puts @name + "List"
         index = 0 
         while index < @session.length
-            if(@session[index].minutes >= 1)
-                puts (index+1).to_s + ". " + @session[index].name
-            else 
-                puts (index+1).to_s + ". " + @session[index].name
-            end
+            puts (index+1).to_s + " ." + @session[index].to_s
 
-        index += 1
 
+            index += 1
         end
     end
-
-
-# stuff callum added
-
-
-
-
-
 end
 
-surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']
-
-name = ""
-
-
-puts "Welcome to" 
-intro = puts font.write("Surf Saver")
-
-# Prints random surf quote to start
-randomSurfQuote(surf_quotes)
-
-def welcome
-    puts "Please enter your name"
-    name = gets.chomp
-    system 'clear'
-    puts "Welcome to Surf Saver #{name}".colorize(:red)
-
-end
-
-
-
-welcome()
-puts "Press y to continue"
-
-continue = gets.chomp
-
-if continue == "y"
-    puts "You have selected continue"
-elsif continue != "y"
-    puts "Please select y to continue"
-    puts "Or enter exit to exit the program"
-    continue = gets.chomp
-end
-
-
-# require_relative 'menu'
-
-# ui = UserInterface.new
-
-# ui.main_menu()
-
-# menu()

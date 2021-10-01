@@ -1,6 +1,9 @@
-# require_relative 'surfer_update'
-require 'tty-prompt'
-prompt = TTY::Prompt.new
+# require_relative "src/menu.rb"
+require_relative "menu.rb"
+# require_relative "src/list.rb"
+require_relative "list.rb"
+
+
 
 puts "Welcome to Surf Saver"
 puts "It's designed to encourage you to keep surfing frequently"
@@ -19,10 +22,9 @@ listArray = [
 
 
 
-require_relative 'menu.rb'
-require_relative 'list.rb'
+
 
 ui = UserInterface.new
 list = List.new()
 
-ui.main_menu(list)
+ui.mainMenu(list)

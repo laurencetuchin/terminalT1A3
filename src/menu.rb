@@ -1,96 +1,118 @@
+require_relative 'list'
+# require_relative 'surfquote'
+require 'tty-font'
 
-require_relative 'list.rb'
-require_relative 'surfsession.rb'
+surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']
+
 
 class UserInterface
-    def initialize()
+    attr_accessor :surf_quotes
+    def initialize
+        @surf_quotes = surf_quotes
+    end
 
-    end 
-# stuff callum added
-
-    def mainMenu(list)
-        @list = list
+    def mainMenu(listObjectArg)
+        @list = listObjectArg
 
         menuLoop = true
 
         while menuLoop == true
 
-                system 'clear'
+                system("clear")
+                
+                
+                
+                puts "Welcome to" 
+                font = TTY::Font.new(:doom)
+                intro = puts font.write("Surf Saver")
+                
+                # Prints random surf quote to start
+                
+                # Get user input
+                # Send user through menu
+                # Get user to input option
                 
                 @list.print()
-            
-            
-            puts "Welcome to" 
-            intro = puts font.write("Surf Saver")
-            
-            # Prints random surf quote to start
-            randomSurfQuote(surf_quotes)
-            
-            def welcome
-                puts "Please enter your name"
-                name = gets.chomp
-                system 'clear'
-                puts "Welcome to Surf Saver #{name}".colorize(:red)
-                
-            end
-        end
-
-        def add_task()
-            system 'clear'
-
-            puts "Write your name below"
-            name = gets.chomp
-
-            @list.add_task(name, difficulty, minutes, location, rating)
+                puts "What would you like to do?"
 
         end
-        def delete_task(listArray)
-            system 'clear'
-
-            puts "What would you like to delete?"
-            @list.print()
             
-            name = gets.chomp
-
-            @list.add_task(name, difficulty, minutes, location, rating)
-
-        end
-
-        def favoriteSurf(listArray)
-            puts "Which surf would you like to favourite?"
-            @list.print()
-
-            index = gets.chomp.to_i - 1
-
-            if(@list[index].favorite == false)
-                @list[index].favorite = true
-            else
-                puts "this is already favourited"
-            end 
-        end
-
-
-
+    end
+     
+    def randomSurfQuote
+        surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']   
+        # @surf_quotes = surf_quotes
+        random = surf_quotes.sample
+        puts random
     end
     
-    
-    
+    # randomSurfQuote()
+        
+    def welcome
+            puts "Please enter your name"
+            name = gets.chomp
+            system 'clear'
+            puts "Welcome to Surf Saver #{name}".colorize(:red)
+            
+    end
+
     # welcome()
-    puts "Press y to continue"
-    
-    continue = gets.chomp
-    
-    if continue == "y"
-        puts "You have selected continue"
-    elsif continue != "y"
-        puts "Please select y to continue"
-        puts "Or enter exit to exit the program"
-        continue = gets.chomp
+        
+    def add_task()
+        system 'clear'
+        # Gets user input
+        puts "Write a name for your surf session below"
+        name = gets.chomp
+        puts "Write a difficulty (easy, medium, hard)"
+        difficulty = gets.chomp
+        puts "How many minutes did you surf for?"
+        minutes = gets.chomp.to_i
+        puts "Where did you surf?"
+        location = gets.chomp
+        puts "What rating did you give the surf?"
+        rating = gets.chomp.to_i
+
+        @list.add_task(name, difficulty, minutes, location, rating)
+
+    end
+    def delete_task()
+        system 'clear'
+        puts "What would you like to delete?"
+        @list.print()
+        index = input.to_i - 1
+        @list.deleteSurf(index)
+
     end
 
+    def favoriteSurf()
+        puts "Which surf would you like to favourite?"
+        @list.print()
+
+        index = gets.chomp.to_i - 1
+        @list.favoriteSurf(index)
+        if(@list[index].favorite == false)
+            @list[index].favorite = true
+        else
+            puts "this is already favourited"
+        end 
+    end
+    
 end
 
 
+
+# welcome()
+# puts "Press y to continue"
+
+# continue = gets.chomp
+
+# if continue == "y"
+#     puts "You have selected continue"
+# elsif continue != "y"
+#     puts "Please select y to continue"
+#     puts "Or enter exit to exit the program"
+#     continue = gets.chomp
+# end
 
 # module Menu
 #     #menu controller
