@@ -75,18 +75,33 @@ class UserInterface
     def add_task()
         system 'clear'
         # Gets user input
-        puts "Write a name for your surf session below"
-        name = gets.chomp
-        puts "Write a difficulty (easy, medium, hard)"
-        difficulty = gets.chomp
+        prompt = TTY::Prompt.new
+        # name used to describe session
+        name = prompt.ask("Write a name for your surf session below")
+
+        # Gets user difficulty
+        # Difficulty used for points system
+        difficulty_setting = %w(easy medium hard)
+        difficulty = prompt.select("What difficulty would you describe the surf?", difficulty_setting)
+
+        # Gets minutes user surfed
+        # Minutes used for points system
         puts "How many minutes did you surf for?"
         minutes = gets.chomp.to_i
-        puts "Where did you surf?"
-        location = gets.chomp
-        puts "What rating did you give the surf?"
-        rating = gets.chomp.to_i
 
-        @list.add_task(name, difficulty, minutes, location, rating)
+        # Gets location that user surfed
+        location = prompt.ask("Where did you surf?")
+        
+        
+        # Gets user ratings for surf
+        rating = prompt.ask("What rating did you give the surf? (Number out of 10)")
+
+        # User can select days from list
+        # Day value passed into surf
+        days = %w(monday tuesday wednesday thursday friday saturday sunday)
+        day = prompt.select("What day did you surf?", days)
+        
+        @list.add_task(name, difficulty, minutes, location, rating, day)
 
     end
     def delete_task()

@@ -2,12 +2,12 @@ require 'tty-prompt'
 
 
 class Surf
-    attr_reader :name, :minutes, :difficulty, :location, :rating
+    attr_reader :name, :minutes, :difficulty, :location, :rating, :points
     
-    def initialize(id, name, date, difficulty, minutes, points, location, rating)
+    def initialize(name, difficulty, minutes, location, rating, day)
         @id = rand(666)
         @name = name
-        @date = Date.now.to_s
+        # @date = date
         @difficulty = difficulty
         @minutes = minutes
         @points = points
@@ -37,6 +37,11 @@ class Surf
         @difficulty = "hard"
     end
 
+    def date=(date)
+        date = Date.now.to_s
+        @date = date
+    end
+
 
 
     def difficultyMultiplier
@@ -49,8 +54,8 @@ class Surf
         end
     end
 
-    def totalPoints=(minutes, difficultyMultiplier)
-        totalPoints = minutes * difficultyMultiplier
+    def points=(minutes, difficultyMultiplier)
+        points = minutes * difficultyMultiplier
     end
 
     def favoriteSurf(bool)
