@@ -5,8 +5,7 @@ class List
     
     
     def initialize()
-        @name = "New"
-        @session = [] #list of surf
+        @session = [] #list of surf object
 
     end
 
@@ -17,17 +16,19 @@ class List
 
     end
 
-    def add_task(name, difficulty, minutes, location, rating, day)
+    def add_task(name, difficulty, minutes, location, rating, day, favorite)
         # Add input info
         # TTY prompt
 
-        
-        newTask = Surf.new(name, difficulty, minutes, location, rating, day)
+        #Pushes data to surf session
+        newTask = Surf.new(name, difficulty, minutes, location, rating, day, favorite)
         @session.push(newTask)
 
     end
 
     def deleteSurf(index)
+        # Add print
+        print()
         @session.delete_at(index)
     end
 

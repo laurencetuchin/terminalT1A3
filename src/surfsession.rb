@@ -4,10 +4,10 @@ require 'tty-prompt'
 class Surf
     attr_reader :name, :minutes, :difficulty, :location, :rating, :points
     
-    def initialize(name, difficulty, minutes, location, rating, day)
+    def initialize(name, difficulty, minutes, location, rating, day, favorite)
         @id = rand(666)
         @name = name
-        # @date = date
+        @date = date
         @difficulty = difficulty
         @minutes = minutes
         @points = points
@@ -37,13 +37,19 @@ class Surf
         @difficulty = "hard"
     end
 
+    #Get date
+    def date 
+        @date
+    end
+
+    # Set date
     def date=(date)
         date = Date.now.to_s
         @date = date
     end
 
 
-
+    #Bonus score calculator
     def difficultyMultiplier
         case @day
         when "saturday" || "sunday"
@@ -54,11 +60,21 @@ class Surf
         end
     end
 
+    #Get points
+    def points 
+        @points
+    end
+    #Set points
     def points=(minutes, difficultyMultiplier)
         points = minutes * difficultyMultiplier
     end
 
-    def favoriteSurf(bool)
+    def favoriteSurf
+        @favorite
+    end
+
+    def favoriteSurf=(favorite)
+        @favorite = favorite
         @favorite = true
     end
 

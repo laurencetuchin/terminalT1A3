@@ -45,6 +45,11 @@ class UserInterface
                     add_task()
                 when "delete"
                     delete_task()
+                when "show"
+                    delete_task()
+                when "checkscore"
+                    delete_task()
+                    # Add check score method
                 else
                     "Please try again"
                 end
@@ -100,8 +105,27 @@ class UserInterface
         # Day value passed into surf
         days = %w(monday tuesday wednesday thursday friday saturday sunday)
         day = prompt.select("What day did you surf?", days)
+        favoriteSurf = %w(yes no)
+        favorite = prompt.select("Would you like to favorite this surf?", favoriteSurf)
+        #Reassign yes/no strings to boolean
+        if favorite == "yes"
+            favorite = true
+        elsif favorite == "no"
+            favorite = false
+        end
+
+        #Calculates points and assigns into object array
+        weekday = day != "saturday" || "sunday"
+        weekend = day == "saturday" || "sunday"
+        if test
+            
+        elsif 
+            
+        end
         
-        @list.add_task(name, difficulty, minutes, location, rating, day)
+        points = 
+        #Pushes and stores data into session object
+        @list.add_task(name, difficulty, minutes, location, rating, day, favorite)
 
     end
     def delete_task()
@@ -125,6 +149,7 @@ class UserInterface
             puts "this is already favourited"
         end 
     end
+    
     
 end
 
