@@ -3,6 +3,10 @@ require_relative 'list'
 require 'tty-font'
 require 'tty-prompt'
 require 'colorize'
+require 'tty-reader'
+require 'yaml'
+
+
 
 surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']
 
@@ -30,6 +34,7 @@ class UserInterface
                 puts "Welcome to" 
                 font = TTY::Font.new(:doom)
                 intro = puts font.write("Surf Saver")
+                reader = TTY::Reader.new
                 randomSurfQuote()
                 # welcome()
                 # Prints random surf quote to start
@@ -40,7 +45,7 @@ class UserInterface
                 @list.print()
                 puts "---------"
                 prompt = TTY::Prompt.new
-                menu_options = %w(add checkscore delete export favorite)
+                menu_options = %w(add checkscore delete export favorite all)
                 input = prompt.select("What would you like to do? #{name}".colorize(:blue), menu_options)
 
                 case input
@@ -54,6 +59,8 @@ class UserInterface
                     export_YAML()
                 when "favorite"
                     favoriteSurf()
+                when "all"
+                    surfAll()
                     # Add check score method
                 else
                     "Please try again"
@@ -66,8 +73,9 @@ class UserInterface
     def randomSurfQuote
         surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']   
         # @surf_quotes = surf_quotes
+        reader = TTY::Reader.new
         random = surf_quotes.sample
-        puts random
+        reader.read_line(random) 
     end
     
     # randomSurfQuote()
@@ -183,8 +191,10 @@ class UserInterface
         puts "Congratulations #{@name} your points is #{@points}. Keep up the good work"
         puts "press any key to continue"
         input2 = gets.chomp
+
+        date = "text"
         #Pushes and stores data into session object
-        @list.add_task(name, difficulty, minutes, location, rating, day, favorite, points)
+        @list.add_task(name, difficulty, minutes, location, rating, day, favorite, points, date)
 
     end
     def delete_task()
@@ -214,15 +224,24 @@ class UserInterface
         # end 
     end
 
-    # def export_YAML
-    #     @session
-    #     sessionAll.
-    #     File.open
-    # end
+    def export_YAML
+        surf = @list
+        puts surf.to_yaml
+        File.open("src/#{surf}.yml", "w") { |file| file.write(surf.to_yaml)}
+        puts "For your convenience, we have exported the file into the src folder"
+        puts "press any key to continue"
+        input = gets.chomp
+    end
 
     def check_points()
         #calls instance variable for points
         puts "#{@name} you have scored #{@points}, great work!"
+        puts "press any key to continue"
+        input = gets.chomp
+    end
+
+    def surfAll()
+        puts @list
         puts "press any key to continue"
         input = gets.chomp
     end

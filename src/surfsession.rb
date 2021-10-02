@@ -3,9 +3,9 @@ require 'colorize'
 
 # Stores Surf session data
 class Surf
-    attr_reader :name, :minutes, :difficulty, :location, :rating, :points, :favorite
+    attr_reader :name, :minutes, :difficulty, :location, :rating, :points, :favorite, :date
     
-    def initialize(name, difficulty, minutes, location, rating, day, favorite, points)
+    def initialize(name, difficulty, minutes, location, rating, day, favorite, points, date)
         @id = rand(666)
         @name = name
         @date = date

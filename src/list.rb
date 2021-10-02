@@ -3,7 +3,7 @@ require 'colorize'
 
 class List
     
-    
+    attr_reader :session, :sessionAll
     def initialize()
         @session = [] #list of surf object
 
@@ -16,12 +16,12 @@ class List
 
     end
 
-    def add_task(name, difficulty, minutes, location, rating, day, favorite, points)
+    def add_task(name, difficulty, minutes, location, rating, day, favorite, points, date)
         # Add input info
         # TTY prompt
 
         #Pushes data to surf session
-        newTask = Surf.new(name, difficulty, minutes, location, rating, day, favorite, points)
+        newTask = Surf.new(name, difficulty, minutes, location, rating, day, favorite, points, date)
         @session.push(newTask)
 
     end
@@ -36,7 +36,7 @@ class List
         return @session[index].setfavorite()
     end
 
-    def sessionAll
+    def sessionAll()
         @session.each_with_index do |surf, index|
             puts "id: #{index} surf: #{surf}"
         end
