@@ -1,8 +1,9 @@
 require 'tty-prompt'
+require 'colorize'
 
 # Stores Surf session data
 class Surf
-    attr_reader :name, :minutes, :difficulty, :location, :rating, :points
+    attr_reader :name, :minutes, :difficulty, :location, :rating, :points, :favorite
     
     def initialize(name, difficulty, minutes, location, rating, day, favorite, points)
         @id = rand(666)
@@ -49,10 +50,23 @@ class Surf
         @date = date
     end
 
-    def favorite(index)
-        @session[index].favorite()
-        @favorite
+    def setfavorite()
+        if @favorite == true
+            puts "This is already favorited!".colorize(:red)
+            puts "Press any key to return to main menu"
+            inputfalse = gets.chomp
+            return false
+        else
+            puts "This surf is now favorited".colorize(:green)
+            @favorite = true
+            puts "Press any key to return to main menu"
+            inputtrue = gets.chomp
+            return true
+        end
+    end
 
+    def alreadyFavorited
+        return @favorite == true
     end
 
     #Bonus score calculator

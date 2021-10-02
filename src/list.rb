@@ -33,7 +33,7 @@ class List
     end
 
     def favoriteSurf(index)
-        @session[index].favorite()
+        return @session[index].setfavorite()
     end
 
     def sessionAll

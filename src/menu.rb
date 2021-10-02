@@ -40,7 +40,7 @@ class UserInterface
                 @list.print()
                 puts "---------"
                 prompt = TTY::Prompt.new
-                menu_options = %w(add checkscore delete export)
+                menu_options = %w(add checkscore delete export favorite)
                 input = prompt.select("What would you like to do? #{name}".colorize(:blue), menu_options)
 
                 case input
@@ -52,6 +52,8 @@ class UserInterface
                     check_points()
                 when "export"
                     export_YAML()
+                when "favorite"
+                    favoriteSurf()
                     # Add check score method
                 else
                     "Please try again"
@@ -201,11 +203,15 @@ class UserInterface
 
         index = gets.chomp.to_i - 1
         @list.favoriteSurf(index)
-        if(@list[index].favorite == false)
-            @list[index].favorite = true
-        else
-            puts "this is already favourited"
-        end 
+        # if(@list[index].favorite == false)
+        #     @list[index].favorite = true
+        # else
+        #     puts "this is already favourited"
+        # end 
+
+        # if(!@list.favoriteSurf(index))
+
+        # end 
     end
 
     # def export_YAML
