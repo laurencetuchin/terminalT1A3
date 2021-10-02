@@ -16,12 +16,12 @@ class List
 
     end
 
-    def add_task(name, difficulty, minutes, location, rating, day, favorite)
+    def add_task(name, difficulty, minutes, location, rating, day, favorite, points)
         # Add input info
         # TTY prompt
 
         #Pushes data to surf session
-        newTask = Surf.new(name, difficulty, minutes, location, rating, day, favorite)
+        newTask = Surf.new(name, difficulty, minutes, location, rating, day, favorite, points)
         @session.push(newTask)
 
     end
@@ -44,10 +44,12 @@ class List
 
     def print()
         if(@session.length <= 0)
+            puts "You currently don't have any surf sessions"
+            puts "Please add below"
             return
         end
         
-        puts @name + "List"
+        puts @name
         index = 0 
         while index < @session.length
             puts (index+1).to_s + " ." + @session[index].to_s

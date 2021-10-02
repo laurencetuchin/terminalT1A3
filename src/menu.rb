@@ -2,6 +2,7 @@ require_relative 'list'
 # require_relative 'surfquote'
 require 'tty-font'
 require 'tty-prompt'
+require 'colorize'
 
 surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']
 
@@ -10,6 +11,9 @@ class UserInterface
     attr_accessor :surf_quotes
     def initialize
         @surf_quotes = surf_quotes
+        @name = name
+        @points = points
+        welcome()
     end
 
     def mainMenu(listObjectArg)
@@ -27,28 +31,27 @@ class UserInterface
                 font = TTY::Font.new(:doom)
                 intro = puts font.write("Surf Saver")
                 randomSurfQuote()
-                
+                # welcome()
                 # Prints random surf quote to start
                 # Get user input
                 # Send user through menu
                 # Get user to input option
                 
                 @list.print()
-                puts "What would you like to do?"
                 puts "---------"
                 prompt = TTY::Prompt.new
-                menu_options = %w(add favorite delete show(list))
-                input = prompt.select("What would you like to do?", menu_options)
+                menu_options = %w(add checkscore delete export)
+                input = prompt.select("What would you like to do? #{name}", menu_options)
 
                 case input
                 when "add"
                     add_task()
                 when "delete"
                     delete_task()
-                when "show"
-                    delete_task()
                 when "checkscore"
-                    delete_task()
+                    check_points()
+                when "export"
+                    export_YAML()
                     # Add check score method
                 else
                     "Please try again"
@@ -69,14 +72,29 @@ class UserInterface
         
     def welcome
             puts "Please enter your name"
-            name = gets.chomp
+            @name = gets.chomp
             system 'clear'
-            puts "Welcome to Surf Saver #{name}".colorize(:red)
+            puts "Welcome to Surf Saver #{@name}".colorize(:blue)
             
     end
 
     # welcome()
+    def name 
+        @name
+    end 
         
+    def name=(name)
+        @name = name
+    end
+
+    def points 
+        @points
+    end 
+        
+    def points=(points)
+        @points = points
+    end
+
     def add_task()
         system 'clear'
         # Gets user input
@@ -115,23 +133,63 @@ class UserInterface
         end
 
         #Calculates points and assigns into object array
-        weekday = day != "saturday" || "sunday"
-        weekend = day == "saturday" || "sunday"
-        if test
+        # weekday = day != "saturday" || "sunday"
+        # weekend = day == "saturday" || "sunday"
+        # if test
             
-        elsif 
+        # elsif 
             
+        # end
+        #Point factors
+        #minutes
+        #dayofweek
+        #difficulty
+
+        case difficulty
+        when "easy"
+            1
+        when "medium"
+            1.2
+        else
+            1.5
         end
-        
-        points = 
+
+        # Assigning multiplier to difficulty
+        difficulty_score = 0
+        if difficulty == "easy"
+            difficulty_score = 1
+        elsif difficulty == "medium"
+            difficulty_score = 1.2
+        elsif difficulty == "hard"
+            difficulty_score = 1.5
+        end
+
+        day_score = 0
+        case day
+        when "saturday"
+            day_score = 1
+        when "sunday"
+            day_score = 1
+        else
+            day_score = 1.3
+        end
+
+        totalpoints = minutes * difficulty_score * day_score     
+        @points = totalpoints
+        points = totalpoints
+        # puts totalpoints.to_s
+        puts "Congratulations #{@name} your points is #{@points}. Keep up the good work"
+        puts "press any key to continue"
+        input2 = gets.chomp
         #Pushes and stores data into session object
-        @list.add_task(name, difficulty, minutes, location, rating, day, favorite)
+        @list.add_task(name, difficulty, minutes, location, rating, day, favorite, points)
 
     end
     def delete_task()
         system 'clear'
         puts "What would you like to delete?"
         @list.print()
+        input = gets.chomp
         index = input.to_i - 1
         @list.deleteSurf(index)
 
@@ -149,8 +207,17 @@ class UserInterface
             puts "this is already favourited"
         end 
     end
-    
-    
+
+    # def export_YAML
+    #     @session
+    #     sessionAll.
+    #     File.open
+    # end
+
+    def check_points
+        #calls instance variable for points
+        puts "#{@name} you have scored #{@points}, great work!"
+    end
 end
 
 

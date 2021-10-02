@@ -4,7 +4,7 @@ require 'tty-prompt'
 class Surf
     attr_reader :name, :minutes, :difficulty, :location, :rating, :points
     
-    def initialize(name, difficulty, minutes, location, rating, day, favorite)
+    def initialize(name, difficulty, minutes, location, rating, day, favorite, points)
         @id = rand(666)
         @name = name
         @date = date
@@ -16,6 +16,7 @@ class Surf
         @day = day
         @difficultyMultiplier = difficultyMultiplier
         @favorite = favorite
+        puts "Congratulations #{@name} your points is #{@points}. Keep up the good work"
     end
     #changes difficulty to easy
     # prompt = TTY::Prompt.new
