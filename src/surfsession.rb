@@ -1,6 +1,6 @@
 require 'tty-prompt'
 
-
+# Stores Surf session data
 class Surf
     attr_reader :name, :minutes, :difficulty, :location, :rating, :points
     
