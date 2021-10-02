@@ -13,12 +13,12 @@ class UserInterface
         @surf_quotes = surf_quotes
         @name = name
         @points = points
-        welcome()
     end
-
+    
     def mainMenu(listObjectArg)
         @list = listObjectArg
-
+        
+        welcome()
         menuLoop = true
 
         while menuLoop == true
@@ -41,7 +41,7 @@ class UserInterface
                 puts "---------"
                 prompt = TTY::Prompt.new
                 menu_options = %w(add checkscore delete export)
-                input = prompt.select("What would you like to do? #{name}", menu_options)
+                input = prompt.select("What would you like to do? #{name}".colorize(:blue), menu_options)
 
                 case input
                 when "add"
@@ -214,9 +214,11 @@ class UserInterface
     #     File.open
     # end
 
-    def check_points
+    def check_points()
         #calls instance variable for points
         puts "#{@name} you have scored #{@points}, great work!"
+        puts "press any key to continue"
+        input = gets.chomp
     end
 end
 

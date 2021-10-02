@@ -1,5 +1,5 @@
 require_relative "surfsession.rb"
-
+require 'colorize'
 
 class List
     
@@ -44,8 +44,8 @@ class List
 
     def print()
         if(@session.length <= 0)
-            puts "You currently don't have any surf sessions"
-            puts "Please add below"
+            puts "You currently don't have any surf sessions".colorize(:red)
+            puts "Please add below".colorize(:red)
             return
         end
         
