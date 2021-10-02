@@ -49,6 +49,11 @@ class Surf
         @date = date
     end
 
+    def favorite(index)
+        @session[index].favorite()
+        @favorite
+
+    end
 
     #Bonus score calculator
     def difficultyMultiplier
