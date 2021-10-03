@@ -1,0 +1,14 @@
+--- !ruby/object:List
+session:
+- !ruby/object:Surf
+  id: 98
+  name: test
+  date: !ruby/object:DateTime 2021-10-03 20:34:27.134516500 +11:00
+  difficulty: easy
+  minutes: 100
+  points: 130.0
+  location: woonona
+  rating: '8'
+  day: monday
+  difficultyMultiplier: 
+  favorite: true

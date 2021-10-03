@@ -1,4 +1,5 @@
 require_relative 'list'
+require_relative 'validation'
 # require_relative 'surfquote'
 require 'tty-font'
 require 'tty-prompt'
@@ -45,24 +46,25 @@ class UserInterface
                 @list.print()
                 puts "---------"
                 prompt = TTY::Prompt.new
-                menu_options = %w(add checkscore delete export favorite all)
+                # menu_options = %w(add checkscore delete export favorite all) ["Add surf session", "Check score", "Delete", "Export Surf session", "Favorite", "Check all Surf sessions", "Recent Surf"]
+                menu_options = ["Add surf session", "Check score", "Delete", "Export Surf session", "Favorite", "Check all Surf sessions", "Recent Surf"]
                 input = prompt.select("What would you like to do? #{name}".colorize(:blue), menu_options)
 
                 case input
-                when "add"
+                when "Add surf session"
                     add_task()
-                when "delete"
+                when "Delete"
                     delete_task()
-                when "checkscore"
+                when "Check score"
                     check_points()
-                when "export"
+                when "Export Surf session"
                     export_YAML()
-                when "favorite"
+                when "Favorite"
                     favoriteSurf()
-                when "all surf history"
+                when "Check all Surf sessions"
                     surfAll()
                     # Add check score method
-                when "most recent surf"
+                when "Recent Surf"
                     recentSurf()
                     # Add check score method
                 else
@@ -114,7 +116,7 @@ class UserInterface
         prompt = TTY::Prompt.new
         # name used to describe session
         name = prompt.ask("Write a name for your surf session below")
-
+        validword(name)
         # Gets user difficulty
         # Difficulty used for points system
         difficulty_setting = %w(easy medium hard)
@@ -122,9 +124,11 @@ class UserInterface
 
         # Gets minutes user surfed
         # Minutes used for points system
+        
         puts "How many minutes did you surf for?"
         minutes = gets.chomp.to_i
-
+        validnumber(minutes)
+        
         # Gets location that user surfed
         location = prompt.ask("Where did you surf?")
         
@@ -229,13 +233,6 @@ class UserInterface
     end
 
     def export_YAML
-        # surf = @list
-        # puts surf.to_yaml
-        # File.open("src/#{surf.filename}.yml", "w") { |file| file.write(surf.to_yaml)}
-        # puts "Export successful!".colorize(:green)
-        # puts "For your convenience, we have exported the file into the src folder"
-        # puts "press any key to continue"
-        # input = gets.chomp
 
         if @list.session.size >= 1
             surf = @list
@@ -262,7 +259,7 @@ class UserInterface
     end
 
     def surfAll()
-        puts @list
+        puts @list.session
         puts "press any key to continue"
         input = gets.chomp
     end

@@ -1,0 +1,26 @@
+--- !ruby/object:List
+session:
+- !ruby/object:Surf
+  id: 287
+  name: 
+  date: !ruby/object:DateTime 2021-10-03 16:59:49.425925800 +11:00
+  difficulty: easy
+  minutes: 0
+  points: 0.0
+  location: 
+  rating: 
+  day: monday
+  difficultyMultiplier: 
+  favorite: true
+- !ruby/object:Surf
+  id: 477
+  name: 
+  date: !ruby/object:DateTime 2021-10-03 17:00:00.326898600 +11:00
+  difficulty: easy
+  minutes: 43
+  points: 55.9
+  location: rer
+  rating: '3'
+  day: tuesday
+  difficultyMultiplier: 
+  favorite: true

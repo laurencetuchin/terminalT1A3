@@ -4,7 +4,7 @@ require_relative "menu.rb"
 require_relative "list.rb"
 
 def slowtype
-    sleep(rand(0.8..1.5))
+    sleep(rand(0.2..1))
 end
 
 puts "Welcome to Surf Saver" 
@@ -28,10 +28,7 @@ listArray = [
 ]
 
 
-
-
-
-
+# Initiates the application
 ui = UserInterface.new
 list = List.new()
 
