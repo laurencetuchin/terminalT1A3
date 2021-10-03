@@ -16,12 +16,12 @@ class List
 
     end
 
-    def add_task(name, difficulty, minutes, location, rating, day, favorite, points, date)
+    def add_task(name, difficulty, minutes, location, rating, day, favorite, points)
         # Add input info
         # TTY prompt
 
         #Pushes data to surf session
-        newTask = Surf.new(name, difficulty, minutes, location, rating, day, favorite, points, date)
+        newTask = Surf.new(name, difficulty, minutes, location, rating, day, favorite, points)
         @session.push(newTask)
 
     end

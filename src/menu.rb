@@ -5,7 +5,7 @@ require 'tty-prompt'
 require 'colorize'
 require 'tty-reader'
 require 'yaml'
-
+require 'time'
 
 
 surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']
@@ -192,9 +192,9 @@ class UserInterface
         puts "press any key to continue"
         input2 = gets.chomp
 
-        date = "text"
+        
         #Pushes and stores data into session object
-        @list.add_task(name, difficulty, minutes, location, rating, day, favorite, points, date)
+        @list.add_task(name, difficulty, minutes, location, rating, day, favorite, points)
 
     end
     def delete_task()
@@ -225,7 +225,7 @@ class UserInterface
     end
 
     def export_YAML
-        surf = @list
+        surf = Surf
         puts surf.to_yaml
         File.open("src/#{surf}.yml", "w") { |file| file.write(surf.to_yaml)}
         puts "For your convenience, we have exported the file into the src folder"
@@ -245,8 +245,15 @@ class UserInterface
         puts "press any key to continue"
         input = gets.chomp
     end
-end
 
+    def recentSurf
+        recent = @list
+        surf = Surf.class_variable_get(:@@date)
+        Surf.instance_variable_get(:@date)
+        # Surf.class_variables
+
+    end
+end
 
 
 # welcome()

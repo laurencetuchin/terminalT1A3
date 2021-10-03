@@ -1,20 +1,23 @@
 require 'tty-prompt'
 require 'colorize'
+require 'time'
 
 # Stores Surf session data
 class Surf
-    attr_reader :name, :minutes, :difficulty, :location, :rating, :points, :favorite, :date
+    attr_accessor :date
+    attr_reader :name, :minutes, :difficulty, :location, :rating, :points, :favorite
     
-    def initialize(name, difficulty, minutes, location, rating, day, favorite, points, date)
+    def initialize(name, difficulty, minutes, location, rating, day, favorite, points)
         @id = rand(666)
         @name = name
-        @date = date
+        @date = DateTime.now()
         @difficulty = difficulty
         @minutes = minutes
         @points = points
         @location = location
         @rating = rating
         @day = day
+        @@date = @date
         @difficultyMultiplier = difficultyMultiplier
         @favorite = favorite
         puts "Congratulations #{@name} your points is #{@points}. Keep up the good work"
