@@ -162,7 +162,7 @@ Utilise a suitable project management platform to track this implementation plan
 
 
 
-![image-20211003193025468](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003193025468.png)
+![image-20211003193025468](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003193025468.png)
 
 
 
