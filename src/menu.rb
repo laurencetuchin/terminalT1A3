@@ -59,8 +59,11 @@ class UserInterface
                     export_YAML()
                 when "favorite"
                     favoriteSurf()
-                when "all"
+                when "all surf history"
                     surfAll()
+                    # Add check score method
+                when "most recent surf"
+                    recentSurf()
                     # Add check score method
                 else
                     "Please try again"
@@ -200,6 +203,7 @@ class UserInterface
     def delete_task()
         system 'clear'
         puts "What would you like to delete?"
+        puts "Please input a number"
         @list.print()
         input = gets.chomp
         index = input.to_i - 1
@@ -225,12 +229,29 @@ class UserInterface
     end
 
     def export_YAML
-        surf = Surf
-        puts surf.to_yaml
-        File.open("src/#{surf}.yml", "w") { |file| file.write(surf.to_yaml)}
-        puts "For your convenience, we have exported the file into the src folder"
-        puts "press any key to continue"
-        input = gets.chomp
+        # surf = @list
+        # puts surf.to_yaml
+        # File.open("src/#{surf.filename}.yml", "w") { |file| file.write(surf.to_yaml)}
+        # puts "Export successful!".colorize(:green)
+        # puts "For your convenience, we have exported the file into the src folder"
+        # puts "press any key to continue"
+        # input = gets.chomp
+
+        if @list.session[@list.session.size]
+            surf = @list
+            puts surf.to_yaml
+            File.open("src/#{surf.filename}.yml", "w") { |file| file.write(surf.to_yaml)}
+            puts "Export successful!".colorize(:green)
+            puts "For your convenience, we have exported the file into the src folder"
+            puts "press any key to continue"
+            input = gets.chomp
+        else
+            system("clear")
+            puts "Export unsuccessful!".colorize(:red)
+            puts "You need to input information before exporting".colorize(:red)
+            puts "press any key to continue"
+            input = gets.chomp
+        end
     end
 
     def check_points()
@@ -247,11 +268,12 @@ class UserInterface
     end
 
     def recentSurf
-        recent = @list
-        surf = Surf.class_variable_get(:@@date)
-        Surf.instance_variable_get(:@date)
+        puts @list.session[@list.session.size-1].printsession
+        # surf = Surf.class_variable_get(:@@date)
+        #  Surf.instance_variable_get(:@date)
         # Surf.class_variables
-
+        puts "press any key to continue"
+        input = gets.chomp
     end
 end
 

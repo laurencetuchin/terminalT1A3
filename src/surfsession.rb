@@ -53,6 +53,12 @@ class Surf
         @date = date
     end
 
+    # def filename
+        
+    #     puts "#{date}_#{name}_#{location}"
+    # end
+
+
     def setfavorite()
         if @favorite == true
             puts "This is already favorited!".colorize(:red)
@@ -101,4 +107,7 @@ class Surf
         @favorite = true
     end
 
+    def printsession
+        puts "Surf Session: #{name} \nDate:  #{date} \nPoints:  #{points}"
+    end
 end

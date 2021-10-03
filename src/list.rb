@@ -52,11 +52,17 @@ class List
         puts @name
         index = 0 
         while index < @session.length
-            puts (index+1).to_s + " ." + @session[index].to_s
+            puts (index+1).to_s + " ." + @session[index].printsession.to_s
 
 
             index += 1
         end
     end
+
+    def filename
+        date = DateTime.now()
+        return "surfhistory_#{date}"
+    end
+
 end
 
