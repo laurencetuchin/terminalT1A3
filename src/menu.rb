@@ -237,7 +237,7 @@ class UserInterface
         # puts "press any key to continue"
         # input = gets.chomp
 
-        if @list.session[@list.session.size]
+        if @list.session.size >= 1
             surf = @list
             puts surf.to_yaml
             File.open("src/#{surf.filename}.yml", "w") { |file| file.write(surf.to_yaml)}
@@ -291,27 +291,3 @@ end
 #     continue = gets.chomp
 # end
 
-# module Menu
-#     #menu controller
-
-#     def addSurf
-#         puts "Enter session name"
-#         name = gets.chomp
-#         puts "Enter difficulty (easy, medium or hard)"
-#         difficulty = gets.chomp
-#         puts "Where did you go surfing?"
-#         location = gets.chomp
-#         puts "What rating did you give the session out of 10?"
-#         rating = gets.chomp.to_i
-#         Surf.new(name, difficulty, minutes, location, rating)
-#     end
-# end
-
-
-
-
-
-
-# surf_quotes = ['If in doubt, paddle out - Nat Young', 'Out of the water, I am nothing. - Duke Kahanamoku', 'I think when a surfer becomes a surfer, its almost like an obligation to be an environmentalist at the same time - Kelly Slater', 'You can take a surfer out of the surf, but you can not take surf out of the surfer - Bob McTavish', 'Live to surf, surf to live - Mike Doyle', 'When the surfs up, your life is too - Wilhelm Sverdvik']
-
-# name = ""
