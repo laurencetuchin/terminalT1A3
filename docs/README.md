@@ -255,77 +255,77 @@ terminal run
 
 ruby src/main.rb
 
-![image-20211003203015661](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203015661.png)
+![image-20211003203015661](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203015661.png)
 
 enter name "Laurence"
 
 press "enter"
 
-![image-20211003203048720](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203048720.png)
+![image-20211003203048720](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203048720.png)
 
 press "enter"
 
-![image-20211003203103268](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203103268.png)
+![image-20211003203103268](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203103268.png)
 
 press "enter"
 
-![image-20211003203125160](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203125160.png)
+![image-20211003203125160](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203125160.png)
 
 Enter name "test"
 
-![image-20211003203151322](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203151322.png)
+![image-20211003203151322](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203151322.png)
 
 Select "easy"
 
-![image-20211003203208064](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203208064.png)
+![image-20211003203208064](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203208064.png)
 
 Enter 100 minutes
 
-![image-20211003203233863](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203233863.png)
+![image-20211003203233863](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203233863.png)
 
 Enter "woonona"
 
-![image-20211003203258824](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203258824.png)
+![image-20211003203258824](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203258824.png)
 
 Enter 8 for rating
 
-![image-20211003203317642](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203317642.png)
+![image-20211003203317642](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203317642.png)
 
 Enter "monday"
 
-![image-20211003203341926](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203341926.png)
+![image-20211003203341926](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203341926.png)
 
 Enter "no"
 
-![image-20211003203411189](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203411189.png)
+![image-20211003203411189](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203411189.png)
 
 Press "enter"
 
-![image-20211003203443572](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203443572.png)
+![image-20211003203443572](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203443572.png)
 
 Press "enter"
 
-![image-20211003203505792](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203505792.png)
+![image-20211003203505792](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203505792.png)
 
 Check score
 
-![image-20211003203531163](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203531163.png)
+![image-20211003203531163](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203531163.png)
 
 return to menu
 
-![image-20211003203558469](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203558469.png)
+![image-20211003203558469](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203558469.png)
 
 Select session to favorite, previous value false to favorite
 
 Enter "1"
 
-![image-20211003203644178](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203644178.png)
+![image-20211003203644178](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203644178.png)
 
 Session now favorited
 
 return to main menu
 
-![image-20211003203710970](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203710970.png)
+![image-20211003203710970](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203710970.png)
 
 select export
 
@@ -335,7 +335,7 @@ return to main menu
 
 select "delete"
 
-![image-20211003203744973](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203744973.png)
+![image-20211003203744973](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203744973.png)
 
 
 
@@ -345,7 +345,7 @@ return to main menu
 
 Greeted with "You currently don't have any surf sessions"
 
-![image-20211003203829054](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003203829054.png)
+![image-20211003203829054](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003203829054.png)
 
 
 
@@ -353,17 +353,17 @@ Fail case
 
 Enter name "laurence"
 
-![image-20211003204020914](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003204020914.png)
+![image-20211003204020914](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003204020914.png)
 
 Press "enter"
 
 Press "enter"
 
-![image-20211003204110264](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003204110264.png)
+![image-20211003204110264](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003204110264.png)
 
 Select "check score"
 
-![image-20211003204126268](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003204126268.png)
+![image-20211003204126268](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003204126268.png)
 
 returns no score value
 
@@ -371,23 +371,23 @@ returns to main menu
 
 select "delete"
 
-![image-20211003204209566](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003204209566.png)
+![image-20211003204209566](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003204209566.png)
 
 return to main menu
 
 Select "export"
 
-![image-20211003204303846](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003204303846.png)
+![image-20211003204303846](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003204303846.png)
 
 return to main menu
 
 select "add"
 
-![image-20211003204619290](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003204619290.png)
+![image-20211003204619290](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003204619290.png)
 
 enter invalid information, should be number but I inputted letters
 
-![image-20211003204717632](C:\Users\Laurence\AppData\Roaming\Typora\typora-user-images\image-20211003204717632.png)
+![image-20211003204717632](https://github.com/laurencetuchin/terminalT1A3/blob/master/docs/images/image-20211003204717632.png)
 
 gets InputNumberError and tells the user to "Please input numbers ONLY"
 
